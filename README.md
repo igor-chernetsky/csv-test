@@ -1,4 +1,6 @@
-1. Clone the data of the project.
+#CSV Test Project
+
+1. Clone the code of the project.
 2. Install babel globally `npm install -g babel`
 3. Install all dependencies `npm install`
 4. Rup the project locally `npm start`
