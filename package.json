@@ -1,0 +1,35 @@
+{
+  "name": "csvtest",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "webpack-watch": "webpack -w",
+    "express-server": "babel-node ./bin/www",
+    "start": "concurrent --kill-others \"npm run webpack-watch\" \"npm run express-server\""
+  },
+  "dependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "csv-parser": "^1.10.0",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "formidable": "^1.0.17",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "react-d3-basic": "^1.6.11",
+    "react-dom": "^15.3.0",
+    "react-fileupload": "^2.3.0",
+    "react-router": "^2.6.1",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "concurrently": "^2.2.0"
+  }
+}
