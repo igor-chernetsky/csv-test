@@ -7,6 +7,12 @@ export default class Home extends Component {
     this.state = {};
   }
 
+  renderErrorMessage(){
+    if (!this.state.error) return null;
+
+    return <div className={'alert alert-danger'}>{this.state.error}</div>
+  }
+
   renderResultTable() {
     if (!this.state.data) return null;
 
@@ -47,7 +53,8 @@ export default class Home extends Component {
           this.setState({file});
         },
         uploadSuccess: (res) => {
-          this.setState({data: res});
+          if (res.error) this.setState({data: null, error: res.error});
+          else this.setState({data: res, error: null});
         }
     }
 
@@ -60,6 +67,7 @@ export default class Home extends Component {
     		{uploadBtn}
     	</FileUpload>
       <hr />
+      {this.renderErrorMessage()}
       {this.renderResultTable()}
     </div>);
   }

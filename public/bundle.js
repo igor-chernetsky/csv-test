@@ -29472,6 +29472,17 @@
 	  }
 
 	  _createClass(Home, [{
+	    key: 'renderErrorMessage',
+	    value: function renderErrorMessage() {
+	      if (!this.state.error) return null;
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'alert alert-danger' },
+	        this.state.error
+	      );
+	    }
+	  }, {
 	    key: 'renderResultTable',
 	    value: function renderResultTable() {
 	      if (!this.state.data) return null;
@@ -29560,7 +29571,7 @@
 	          _this2.setState({ file: file });
 	        },
 	        uploadSuccess: function uploadSuccess(res) {
-	          _this2.setState({ data: res });
+	          if (res.error) _this2.setState({ data: null, error: res.error });else _this2.setState({ data: res, error: null });
 	        }
 	      };
 
@@ -29589,6 +29600,7 @@
 	          uploadBtn
 	        ),
 	        _react2.default.createElement('hr', null),
+	        this.renderErrorMessage(),
 	        this.renderResultTable()
 	      );
 	    }

@@ -5,7 +5,8 @@
   "scripts": {
     "webpack-watch": "webpack -w",
     "express-server": "babel-node ./bin/www",
-    "start": "concurrent --kill-others \"npm run webpack-watch\" \"npm run express-server\""
+    "start": "concurrent --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
+    "env": "SET CSVTEST_MAX_FILES=3&&npm run start"
   },
   "dependencies": {
     "babel-cli": "^6.11.4",

@@ -14,6 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 GLOBAL.usage = [];
 GLOBAL.exectime = [];
+GLOBAL.activeFiles = 0;
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -61,7 +62,7 @@ const interval = setInterval(() => {
   const total = process.memoryUsage().heapTotal/1024;
   const perf = {total, used, time: new Date()};
   GLOBAL.usage.push(perf);
-  if(GLOBAL.usage.length > 60) GLOBAL.usage.shift();
+  if(GLOBAL.usage.length > 240) GLOBAL.usage.shift();
 }, 500);
 
 export function socketHandler(socket){
